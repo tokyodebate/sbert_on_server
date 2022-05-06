@@ -54,24 +54,3 @@ read('./data/tab3/nationals.json', './data/json/nationals.json', './data/tab3/wi
 
 read('./data/tab3/internationals.json', './data/json/internationals.json', 'data/tab3/with_slide/internationals.json');
 
-// input_file_name = './data/tab3/nationals.json'
-// output_file_name = "./data/vectors/nationals.json"
-
-// input_file_name = './data/tab3/internationals.json'
-// output_file_name = "./data/vectors/internationals.json"
-
-//8080番ポートでサーバーを待ちの状態にする。
-//またサーバーが起動したことがわかるようにログを出力する
-
-
-// //GETリクエストの設定
-// //'/get'でアクセスされた時に、JSONとログを出力するようにする
-// app.get('/', (req, res)=> {
-//     res.json({ "pet": "dog"});
-//     console.log('GETリクエストを受け取りました')
-//     res.end();
-// })
-
-// app.listen(8080, () => {
-//   console.log("サーバー起動中");
-// });

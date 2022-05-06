@@ -20,9 +20,6 @@ def tsv2json(input_file, output_file, with_slide=False):
                 index += 1
                 motions[index] = x.strip()
                 flag = True
-
-            # 	colabでsbertを生成するときはこれのelifをコメントアウトしてください
-            # 	colabでsbertを生成しないときはこのelifをコメントアウトしてください
             elif t_count == 4:
                 if not with_slide:
                     if flag:
