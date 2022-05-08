@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 require('@tensorflow/tfjs');
-require('@tensorflow/tfjs-node')
+// require('@tensorflow/tfjs-node')
 const use = require('@tensorflow-models/universal-sentence-encoder');
 
 function f(output_file_name, sentences, length, with_slide_sentences) {
@@ -42,6 +42,7 @@ function read(input_file_name, output_file_name, with_slide_file_name) {
 	for (let i=0; i<length; i++) {
 		sentences.push(data[String(i)]);
 	}
+	console.log(sentences)
 	const with_slide_sentences = [];
 		for (let i=0; i<length; i++) {
 		with_slide_sentences.push(with_slide_data[String(i)]);

@@ -12,6 +12,8 @@
     "@tensorflow-models/universal-sentence-encoder": "^1.3.3",
     "@tensorflow/tfjs": "^3.16.0",
     "@tensorflow/tfjs-node": "^3.16.0",
-    "express": "^4.18.1"
+    "cos-similarity": "^1.1.0",
+    "express": "^4.18.1",
+    "fs": "^0.0.1-security"
   }
 }
