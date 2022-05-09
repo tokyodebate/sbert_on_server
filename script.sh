@@ -12,9 +12,16 @@ python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/ma
 node /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main12_create_vectors.js
 python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main13_matrix_topk.py
 
-python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/legacy_code.py
+python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main14.py
 
-mv /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/allVectors.json /Users/koki/Desktop/utcode/tensorflowjs_project/tensorflowjs_sp/src/data/
+python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main15.py
+
+node /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main16.js
+
+mv /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/datastructure.json /Users/koki/Desktop/utcode/tensorflowjs_project/tensorflowjs_sp/src/data
+# mv /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/allVectors.json /Users/koki/Desktop/utcode/tensorflowjs_project/tensorflowjs_sp/src/data/
 mv /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/datastructure_simple.json /Users/koki/Desktop/utcode/tensorflowjs_project/tensorflowjs_sp/src/data/
 
 mv /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/copy.json /Users/koki/Desktop/utcode/tensorflowjs_project/tensorflowjs_sp/src/data/
+
+mv /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/round.json /Users/koki/Desktop/utcode/tensorflowjs_project/tensorflowjs_sp/src/data
