@@ -52,9 +52,7 @@ def tsv2json(input_file, type="national"):
             print(i)
             # for i, x in enumerate(f.readlines()):
             t_count = lst[i].count("\t")
-            if t_count == 0:
-                i += 1
-            elif t_count == 1:
+            if t_count == 1:
                 if data:
                     json_dict[type].append(data)
                 roundId = 0
@@ -101,7 +99,8 @@ def tsv2json(input_file, type="national"):
             # 	json_dict[type][titleId - 2]["rounds"][roundId - 2]["slide"] += lst[i].strip()
             # 	# json_dict[type][titleId - 1]["rounds"][roundId - 1]["slide"] += "\n"
             # 	# json_dict[type][titleId]["rounds"][roundId]["slide"] += "\n"
-
+            else:
+                i += 1
 
 class MyEncoder(json.JSONEncoder):
     def default(self, obj):
