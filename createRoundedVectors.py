@@ -4,15 +4,12 @@ from collections import OrderedDict
 import pprint
 
 
-input_file_name = "/Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/allVectors.json"
+input_file_name = "./data/vectors/data.json"
 
 import numpy as np
 
 with open(input_file_name) as f:
 	datas = np.array(json.loads(f.read()))*10000
-
-
-# print(datas)
 
 json_dict = []
 for i in range(datas.shape[0]):
@@ -20,8 +17,6 @@ for i in range(datas.shape[0]):
 	for j in range(datas.shape[1]):
 		lst.append(int(datas[i][j]))
 	json_dict.append(lst)
-
-# print(json_dict)
 
 
 class MyEncoder(json.JSONEncoder):
@@ -35,6 +30,6 @@ class MyEncoder(json.JSONEncoder):
 		else:
 			return super(MyEncoder, self).default(obj)
 
-output_file_name = "./data/datastructure/rounded.json"
+output_file_name = "./data/roundedVectors/data.json"
 with open(output_file_name, 'w', encoding='utf-8') as fw:
 	fw.write(json.dumps(json_dict, indent=4, cls=MyEncoder))

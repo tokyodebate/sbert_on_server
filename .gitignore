@@ -1,0 +1,6 @@
+*motions/
+node_modules/
+*venv/
+./data/*/*.json
+./data/*/*.tsv
+

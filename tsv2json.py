@@ -23,8 +23,6 @@
 # 	],
 # }
 
-
-
 import copy
 import json
 import re
@@ -38,11 +36,6 @@ json_dict["international"] = []
 titleId, id, roundId = 0, 0, 0
 len_f = 0
 data = {}
-# result = {}
-# result["national"] = []
-# result["international"] = []
-results = {}
-results["data"] = []
 def tsv2json(input_file, type="national"):
     global json_dict
     global titleId, id, roundId, len_f, data
@@ -55,11 +48,8 @@ def tsv2json(input_file, type="national"):
 
         while (i < len_f):
             print(i)
-            # for i, x in enumerate(f.readlines()):
             t_count = lst[i].count("\t")
-            if t_count == 0:
-                i += 1
-            elif t_count == 1:
+            if t_count == 1:
                 if data:
                     json_dict[type].append(data)
                 roundId = 0
@@ -71,12 +61,6 @@ def tsv2json(input_file, type="national"):
                 titleId += 1
                 i += 1
             elif t_count == 2:
-                # data_inner = {}
-                # data_inner["id"] = id
-                # id += 1
-                # data_inner["roundId"] = roundId
-                # roundId += 1
-                # data_inner["title"] = title
                 round = lst[i].strip()
                 i += 1
             elif t_count == 3:
@@ -89,25 +73,16 @@ def tsv2json(input_file, type="national"):
                 data_inner["title"] = title
                 data_inner["motion"] = lst[i].strip()
                 data_inner["slide"] = ""
-                data_inner["type"] = type
-                # data_inner["vector"] = []
-                # data_inner["topk"] = []
                 i += 1
-                # while (i < len_f and lst[i].count('\t') == 3):
-                #     data_innder["motion"]
                 while (i < len_f and lst[i].count('\t') == 4):
+                    if "$stats" in lst[i]:  # Check if $stats is in the line and skip if true
+                        i += 1
+                        continue
                     data_inner["slide"] += lst[i].strip()
                     i += 1
                 data["rounds"].append(data_inner)
-                results["data"].append(data_inner)
-                # json_dict[type][titleId - 1]["rounds"][roundId - 1]["slide"] = ""
-            # elif t_count == 4:
-            # 	print(titleId, id, title)
-
-            # 	json_dict[type][titleId - 2]["rounds"][roundId - 2]["slide"] += lst[i].strip()
-            # 	# json_dict[type][titleId - 1]["rounds"][roundId - 1]["slide"] += "\n"
-            # 	# json_dict[type][titleId]["rounds"][roundId]["slide"] += "\n"
-
+            else:
+                i += 1
 
 class MyEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -124,7 +99,7 @@ class MyEncoder(json.JSONEncoder):
 tsv2json("./data/tsv/nationals.tsv", "national")
 tsv2json("./data/tsv/internationals.tsv", "international")
 
-output_file_name = "./data/datastructure/datastructure_simple.json"
+output_file_name = "./data/json/data.json"
 
 with open(output_file_name, 'w', encoding='utf-8') as fw:
-    fw.write(json.dumps(results, indent=4, cls=MyEncoder))
+    fw.write(json.dumps(json_dict, indent=4, cls=MyEncoder))

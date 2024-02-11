@@ -5,7 +5,7 @@ import numpy as np
 from numpy import dot
 from numpy.linalg import norm
 
-input_file_name = "data/datastructure/allVectors.json"
+input_file_name = "data/vectors/data.json"
 
 
 import numpy
@@ -23,9 +23,6 @@ class MyEncoder(json.JSONEncoder):
             return super(MyEncoder, self).default(obj)
 
 json_topk = []
-# json_topk["national"] = []
-# json_topk["international"] = []
-# print(json_topk)
 
 with open(input_file_name) as f:
     json_dict = json.loads(f.read())
@@ -39,17 +36,6 @@ with open(input_file_name) as f:
     mm_argsort = mm.argsort()
     output = mm_argsort[:, 0: 20]
     print(output)
-
-
-    # m = np.matrix(json_dict["international"])
-    # print(m)
-    # print(m[0]*m[1].T)
-    # mm = -m*m.T
-    # print(mm)
-    # print(mm.argsort())
-    # mm_argsort = mm.argsort()
-
-    # output["international"] = mm_argsort[:, 0: 10]
 
     output_file_name = "data/datastructure/top20.json"
     with open(output_file_name, "w", encoding="utf-8") as f:

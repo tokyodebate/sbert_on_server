@@ -1,39 +1,20 @@
 #!/bin/zsh
 
-# cd /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/motions
-# git pull
-# cd ..
+# git clone git@github.com:tokyodebate/motions.git
+# mkdir ./data/json && mkdir ./data/motions && mkdir ./data/rounds && mkdir ./data/tsv && mkdir ./data/vectors && mkdir ./data/roundedVectorsInJson
+
+python3 ./motion2tsv.py
+python3 ./tsv2json.py
+python3 ./createRoundsFromTsv.py
+python3 ./motions.py
+node ./createVectors.js
+python3 ./createRoundedVectors.py
+node ./createRoundedVectorsInJson.js
 
 
-python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main1_create_tsv0512.py
-python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main11_create_datastructure_json_0512.py
-python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main11_create_datastructure_simple.py
-python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main11_create_motions_json.py
-node /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main12_create_vectors.js
-python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main13_matrix_topk.py
-
-python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main14.py
-
-python3 /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main15.py
-
-node /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/main16.js
-
-# mv /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/datastructure.json /Users/koki/Desktop/utcode/tensorflowjs_project/tensorflowjs_sp/src/data
-# # mv /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/allVectors.json /Users/koki/Desktop/utcode/tensorflowjs_project/tensorflowjs_sp/src/data/
-# mv /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/datastructure_simple.json /Users/koki/Desktop/utcode/tensorflowjs_project/tensorflowjs_sp/src/data/
-
-# mv /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/copy.json /Users/koki/Desktop/utcode/tensorflowjs_project/tensorflowjs_sp/src/data/
-
-# mv /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/round.json /Users/koki/Desktop/utcode/tensorflowjs_project/tensorflowjs_sp/src/data
-
-
-cp /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/copy.json /Users/koki/Desktop/utds/utds_random_motion/tensorflowjs_project/src/data
-cp /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/datastructure.json /Users/koki/Desktop/utds/utds_random_motion/tensorflowjs_project/src/data
-cp /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/datastructure_simple.json /Users/koki/Desktop/utds/utds_random_motion/tensorflowjs_project/src/data
-cp /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/round.json /Users/koki/Desktop/utds/utds_random_motion/tensorflowjs_project/src/data
-
-
-cp /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/copy.json /Users/koki/Desktop/utds/utds_search_similar_motion/tensorflowjs_project/src/data
-cp /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/datastructure.json /Users/koki/Desktop/utds/utds_search_similar_motion/tensorflowjs_project/src/data
-cp /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/datastructure_simple.json /Users/koki/Desktop/utds/utds_search_similar_motion/tensorflowjs_project/src/data
-cp /Users/koki/Desktop/utcode/tensorflowjs_project/sbert_generate_server/data/datastructure/round.json /Users/koki/Desktop/utds/utds_search_similar_motion/tensorflowjs_project/src/data
+# data/rounds/data.json を rounds.json
+# data/roundedVectorsInJson/data.json を vectors.json 
+# git@github.com:tokyodebate/utds_search_similar_motion.git
+# の motions/utds_search_similar_motion/data/ にコピーする
+# cp ../sbert_on_server/data/roundedVectorsInJson/data.json ./src/data/vectors.json
+# cp ../sbert_on_server/data/rounds/data.json ./src/data/rounds.json

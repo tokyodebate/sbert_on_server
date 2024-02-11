@@ -22,7 +22,7 @@ json_dict = {}
 json_dict["national"] = []
 json_dict["international"] = []
 
-input_file_name = "./data/datastructure/datastructure.json"
+input_file_name = "./data/json/data.json"
 
 with open(input_file_name, "r") as f:
 	datas = json.loads(f.read())
@@ -48,6 +48,6 @@ class MyEncoder(json.JSONEncoder):
         else:
             return super(MyEncoder, self).default(obj)
 
-output_file_name = "./data/datastructure/motions.json"
+output_file_name = "./data/motions/data.json"
 with open(output_file_name, 'w', encoding='utf-8') as fw:
     fw.write(json.dumps(json_dict, indent=4, cls=MyEncoder))
